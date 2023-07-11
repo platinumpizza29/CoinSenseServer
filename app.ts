@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json())
 app.use(
   cors({
-    origin: 'http://localhost:65484', // Replace with your Flutter app's origin
+    origin: '*', // Replace with your Flutter app's origin
     allowedHeaders: '*', // Allow all headers
   })
 );
