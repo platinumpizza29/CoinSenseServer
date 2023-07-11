@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 
 //route imports
 import RegisterRoute from "./router/registerUser";
@@ -9,6 +10,13 @@ const app = express();
 
 //middlewares
 app.use(express.json())
+app.use(
+  cors({
+    origin: 'http://localhost:65484', // Replace with your Flutter app's origin
+    allowedHeaders: '*', // Allow all headers
+  })
+);
+
 app.use("/", RegisterRoute);
 app.use("/", LoginRoute);
 app.use("/", ExpenseRoute);
